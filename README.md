@@ -13,6 +13,7 @@ DB_HOST=***
 DB_USERNAME=***   
 DB_PASSWORD=***  
 DB_DATABASE=***  
+asd
 
 CAPCHA_SITE_KEY =***  
 CAPCHA_SEKRET_KEY=***  
