@@ -1,6 +1,11 @@
 <?php
 session_start();
-if (isset($_SESSION['user'])) {header('Location: /dashbord');}
+if (isset($_SESSION['user'])) {
+    header('Location: /dashbord');
+}
+
+require CORE . '/dbconn.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +25,7 @@ if (isset($_SESSION['user'])) {header('Location: /dashbord');}
 
 <body>
 
-    <form action="RegisterController" method="post">
+    <form action="RegisterController" method="post" novalidate>
         <div class="container">
 
             <h1>Регистрация</h1>
@@ -31,7 +36,7 @@ if (isset($_SESSION['user'])) {header('Location: /dashbord');}
             <input type="text" placeholder="Введите Логин" name="login" required>
 
             <label for="email"><b>Email</b></label>
-            <input type="email" placeholder="Введите Email" name="email" required>
+            <input type="email" placeholder="Введите Email" name="mail" required>
 
             <label for="phone"><b>Телефон</b></label>
             <input type="text" placeholder="Введите Телефон" name="phone" required>
@@ -44,10 +49,10 @@ if (isset($_SESSION['user'])) {header('Location: /dashbord');}
             <hr>
 
             <?php
-                if (isset($_SESSION['message'])) {
-                    echo '<p class="error-msg">' . $_SESSION['message'] . '</p>';
-                }
-                unset($_SESSION['message']);
+            if (isset($_SESSION['message'])) {
+                echo '<p class="error-msg">' . $_SESSION['message'] . '</p>';
+            }
+            unset($_SESSION['message']);
             ?>
 
             <p>Создавая учетную запись, вы принимаете наши <a href="#">Условия и конфиденциальность</a>.</p>
