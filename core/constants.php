@@ -15,6 +15,7 @@ define('CORE', ROOT . '/core');
 define('RESOURCES', ROOT . '/resources');
 define('VIEWS', RESOURCES . '/views');
 define('CONTROLLERS', APP . '/controllers');
+define('STMT_FUNCS', CORE . '/stmt_funcs');
 
 define('DB_HOST', $_ENV['DB_HOST']);
 define('DB_USERNAME', $_ENV['DB_USERNAME']);

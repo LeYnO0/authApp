@@ -1,23 +1,21 @@
 <?php
 
+
 function authorization($array)
 {
     require CORE . '/dbconn.php';
+    require STMT_FUNCS . '/auth_user.php';
 
     $method = array_key_first($array);
     $login = $array[$method];
     $form_hashed_password = md5($array['password']);
 
-    $query = "SELECT * FROM users WHERE $method = :login AND password = :password;";
+    if (authUser($method, $login, $form_hashed_password)) {
 
 
-
-    if (mysqli_num_rows($queru_result)) {
         $_SESSION['user'] = [
-            "login" => $data['login'],
-            "mail" => $data['mail'],
-            "phone" => $data['phone'],
-            "password" => $data['password']
+            "mail" => $array['mail'],
+            "phone" => $array['phone'],
         ];
         header('Location: /dashbord');
     } else {

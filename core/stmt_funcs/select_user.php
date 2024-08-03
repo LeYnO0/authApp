@@ -4,7 +4,7 @@
 function loginSelect($login)
 {
 
-    require '../core/dbconn.php';
+    require CORE . '/dbconn.php';
 
     try {
         $query = "SELECT * FROM users WHERE login = :login;";
@@ -15,14 +15,15 @@ function loginSelect($login)
     } catch (PDOException $exception) {
         dump($exception->getMessage());
     }
-    return ($stmt->fetch(PDO::FETCH_ASSOC));
+    return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
 
-function emailSelect($mail)
+
+function mailSelect($mail)
 {
 
-    require '../core/dbconn.php';
+    require CORE . '/dbconn.php';
 
     try {
         $query = "SELECT * FROM users WHERE mail = :mail;";
@@ -33,13 +34,13 @@ function emailSelect($mail)
     } catch (PDOException $exception) {
         dump($exception->getMessage());
     }
-    return ($stmt->fetch(PDO::FETCH_ASSOC));
+    return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
 function phoneSelect($phone)
 {
 
-    require '../core/dbconn.php';
+    require CORE . '/dbconn.php';
 
     try {
         $query = "SELECT * FROM users WHERE phone = :phone;";
@@ -50,5 +51,5 @@ function phoneSelect($phone)
     } catch (PDOException $exception) {
         dump($exception->getMessage());
     }
-    return ($stmt->fetch(PDO::FETCH_ASSOC));
+    return $stmt->fetch(PDO::FETCH_ASSOC);
 }

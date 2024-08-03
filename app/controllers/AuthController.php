@@ -2,7 +2,7 @@
 
 session_start();
 
-require '../core/auth/auth_logic.php';
+require CORE . '/auth/auth_logic.php';
 
 $token;
 $secretKey = CAPCHA_SECRET_KEY;
@@ -19,6 +19,7 @@ if (strlen($_POST['g-recaptcha-response']) != 0) {
     header('Content-type: application/json');
 
     authorization($_POST);
+
 
 }else{
 
